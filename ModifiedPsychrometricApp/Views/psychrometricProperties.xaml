@@ -1,0 +1,189 @@
+﻿<UserControl x:Class="ModifiedPsychrometricApp.Views.psychrometricProperties"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ModifiedPsychrometricApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <UserControl.Resources >
+
+        <Style TargetType="{x:Type Button}" >
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+
+                        <Grid>
+                            <!-- BackgroundBorder -->
+                            <Border x:Name="BackgroundBorder" BorderThickness="1" BorderBrush="Silver" Background="#696969" CornerRadius="4" />
+                            <!-- GlowBorder -->
+                            <Border x:Name="GlowBorder"  CornerRadius="1.5" Margin="2" Opacity="0">
+                                <Border.Background>
+                                    <RadialGradientBrush>
+                                        <RadialGradientBrush.RelativeTransform>
+                                            <TranslateTransform Y="0.6" />
+                                        </RadialGradientBrush.RelativeTransform>
+                                        <GradientStop Offset="0.2" Color="#86AF" />
+                                        <GradientStop Offset="1.2" Color="#06AF" />
+                                    </RadialGradientBrush>
+
+                                </Border.Background>
+                            </Border>
+
+                            <!-- HighlightBorder -->
+                            <Border x:Name="HighlightBorder" CornerRadius="1.5" Margin="2" BorderThickness="1">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Offset="0" Color="#AFFF" />
+                                        <GradientStop Offset="0.5" Color="#4FFF" />
+                                        <GradientStop Offset="0.5" Color="#0FFF" />
+                                        <GradientStop Offset="1.0" Color="#2FFF" />
+                                    </LinearGradientBrush>
+
+                                </Border.Background>
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Offset="0" Color="#DFFF" />
+                                        <GradientStop Offset="0.5" Color="#4FFF" />
+                                        <GradientStop Offset="1.0" Color="#7AFF" />
+                                    </LinearGradientBrush>
+
+                                </Border.BorderBrush>
+                            </Border>
+
+                            <ContentPresenter Margin="0,0,0,2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                        Storyboard.TargetName="GlowBorder"
+                        Storyboard.TargetProperty="Opacity"
+                        To="1"
+                        Duration="0:0:0.1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                        Storyboard.TargetName="GlowBorder"
+                        Storyboard.TargetProperty="Opacity"
+                        Duration="0:0:0.6" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="HighlightBorder" Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Offset="0" Color="Coral" />
+                                            <GradientStop Offset="0.4" Color="#2FFF" />
+                                            <GradientStop Offset="0.6" Color="#0FFF" />
+                                            <GradientStop Offset="1.0"  Color="#1FFF" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="HighlightBorder" Property="BorderBrush" Value="#6FFF" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" ></RowDefinition>
+            <RowDefinition  Height="Auto" ></RowDefinition>
+            <RowDefinition  Height="*" ></RowDefinition>
+            <RowDefinition Height="Auto" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <TextBlock Typography.Capitals="AllSmallCaps" FontSize="32" FontWeight="Bold"
+                    HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" 
+                 Text="**Select the given property from the dropdown" Margin="0,0,0,5" />
+            <ComboBox Width="300" FontSize="15" FontWeight="Bold" ItemsSource ="{Binding ComboProperties}"  SelectedIndex="{Binding SelectedIndex,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <RowDefinition  Height="Auto" ></RowDefinition>
+                <RowDefinition  Height="Auto" ></RowDefinition>
+                <RowDefinition Height="Auto" ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"  ></ColumnDefinition>
+                <ColumnDefinition Width="Auto"  ></ColumnDefinition>
+                <ColumnDefinition Width="Auto" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label  Content="Dry Bulb Temperature (oC)" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"  />
+            <TextBox x:Name="DryBulb"   HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="0" Width="100" BorderBrush="Black" Height="30" FontSize="16" Margin="40,0,0,0" Text="{Binding DryBulb,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+            <Label  Content="Wet Bulb Temperature (oC)" Grid.Row="0" Grid.Column="1"  Visibility="{Binding WetBulbVisibility2}"   VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            <TextBox x:Name="Wetbulb"  HorizontalAlignment="Left" Width="100" Height="30" BorderBrush="Black" Grid.Row="1" FontSize="16"  Grid.Column="1"
+                Margin="40,0,0,0" Visibility="{Binding WetBulbVisibility}"   Text="{Binding WetBulb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+
+
+            <Label  Content="Relative humidty (%)" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Visibility="{Binding RelHumidityVisibility2}"  Margin="5,0,0,0" FontSize="16" />
+            <TextBox x:Name="Relhumidity"  Visibility="{Binding RelHumidityVisibility}"  Margin="40,0,0,0" Height="30" HorizontalAlignment="Left" Width="100" BorderBrush="Black" Grid.Row="1" FontSize="16" Grid.Column="1"
+             Text="{Binding Path= RelHumidity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+
+            <Label  Content="DewPoint Temperature (oC)" Grid.Row="0" Grid.Column="1" Visibility="{Binding DewPointVisibility2}" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16" />
+            <TextBox x:Name="DewPoint" Visibility="{Binding DewPointVisibility}"  Text="{Binding DewPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" 
+                    HorizontalAlignment="Left" Width="100" Grid.Row="1" Grid.Column="1" Height="30" BorderBrush="Black" FontSize="16" Margin="40,0,0,0"/>
+
+
+            <Button x:Name="reset"  FontSize="15" FontWeight="Bold" Command="{Binding Path=ResetBtn}" FontStyle="Oblique" Content="Reset" 
+                     Margin="40,15,78,0" VerticalAlignment="Top" Height="36" Grid.Column="0" Grid.Row="2"/>
+            <Button x:Name="calculate"  FontSize="15" FontWeight="Bold" Content="Calculate" FontStyle="Oblique"  Margin="40,15,85,0"
+                    VerticalAlignment="Top" Width="100" Height="36" Command="{Binding Path=CalculateBtn}" Grid.Column="1" Grid.Row="2" />
+
+        </Grid>
+
+
+
+        <DataGrid Grid.Row="2" Name="DataGrid" Margin="5,20,5,2" ItemsSource="{Binding DataGridDetails}" AutoGenerateColumns="False" CanUserAddRows="False"
+                      IsReadOnly="True" ColumnWidth="Auto" FontSize="16" HorizontalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Enthalpy(kJ/Kg)" Binding="{Binding Path= Enthalpy,Mode=TwoWay }" />
+                <DataGridTextColumn Header="Specific Volume(m3/kg)" Binding="{Binding Path= Volume, Mode=TwoWay  }" />
+                <DataGridTextColumn Header="Humidity Ratio(Kg/kg)" Binding="{Binding Path= HumidityRatio, Mode=TwoWay  }"/>
+                <DataGridTextColumn Header="Saturated Pressure(KPa)" Binding="{Binding Path=SatPressure, Mode=TwoWay  }"/>
+                <DataGridTextColumn Header="Partial Pressure(Kpa)" Binding="{Binding Path= PartialPressure, Mode=TwoWay  }" />
+                <DataGridTextColumn Header="Density(kg/m3)" Binding="{Binding Path=Density, Mode=TwoWay  }"/>
+                <DataGridTextColumn Header="WetBulb Temperature(oC)" Binding="{Binding Path= WetBulb, Mode=TwoWay  }" />
+                <DataGridTextColumn Header="Relative Humidity(%)" Binding="{Binding Path=RelHumidity, Mode=TwoWay  }"/>
+                <DataGridTextColumn Header="DewPoint Temperature(oC)" Binding="{Binding Path= DewPoint, Mode=TwoWay  }" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="3">
+            <TextBlock FontSize="13"  Text="  Copyright MAINTAIN 2018" />
+        </Grid>
+
+    </Grid>
+
+</UserControl>

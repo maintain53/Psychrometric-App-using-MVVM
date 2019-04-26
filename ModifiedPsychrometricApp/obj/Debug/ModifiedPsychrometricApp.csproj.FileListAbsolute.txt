@@ -1,0 +1,17 @@
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\bin\Debug\ModifiedPsychrometricApp.exe.config
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\MainWindow.g.cs
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\Views\psychrometricProperties.g.cs
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\App.g.cs
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\ModifiedPsychrometricApp_MarkupCompile.cache
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\ModifiedPsychrometricApp_MarkupCompile.lref
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\bin\Debug\ModifiedPsychrometricApp.exe
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\bin\Debug\ModifiedPsychrometricApp.pdb
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\MainWindow.baml
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\Views\psychrometricProperties.baml
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\ModifiedPsychrometricApp.g.resources
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\ModifiedPsychrometricApp.Properties.Resources.resources
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\ModifiedPsychrometricApp.csproj.GenerateResource.Cache
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\ModifiedPsychrometricApp.exe
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\ModifiedPsychrometricApp.pdb
+c:\users\dell\documents\visual studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\DELL\Documents\Visual Studio 2015\Projects\ModifiedPsychrometricApp\ModifiedPsychrometricApp\obj\Debug\ModifiedPsychrometricApp.csprojResolveAssemblyReference.cache
